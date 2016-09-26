@@ -1,49 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.mati.ejemplayout.MainActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mati.ejemplayout.MainActivity"
+    android:orientation="vertical"
+    android:baselineAligned="false"
+    android:gravity="center">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Layout Lineal"
-        android:id="@+id/miBtn1"
-        android:layout_marginTop="158dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Layout en Tabla"
-        android:id="@+id/miBtn2"
-        android:layout_below="@+id/miBtn1"
-        android:layout_alignLeft="@+id/miBtn1"
-        android:layout_alignStart="@+id/miBtn1" />
-
-    <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Layout Relativo"
         android:id="@+id/miBtn3"
         android:layout_below="@+id/miBtn2"
-        android:layout_alignLeft="@+id/miBtn2"
-        android:layout_alignStart="@+id/miBtn2" />
+       />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Layout en Tabla"
+        android:id="@+id/miBtn2" />
+
+    <Button
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Layout Grid"
         android:id="@+id/miBtn4"
-        android:layout_below="@+id/miBtn3"
-        android:layout_alignRight="@+id/miBtn1"
-        android:layout_alignEnd="@+id/miBtn1" />
+ />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Layout Lineal"
+        android:id="@+id/miBtn1" />
 
 
-</RelativeLayout>
+</LinearLayout>
