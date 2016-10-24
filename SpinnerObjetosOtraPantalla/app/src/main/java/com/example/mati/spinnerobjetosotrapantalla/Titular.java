@@ -39,11 +39,11 @@ public class Titular implements Serializable {
     }
 
     public int getImagen() {
-        return imagen;
+      return imagen;
     }
 
     public void setImagen(int imagen) {
-        this.imagen = imagen;
+      this.imagen = imagen;
     }
 
     @Override

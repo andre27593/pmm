@@ -12,6 +12,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/titular"/>
+        android:id="@+id/texto"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imagen"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/volver"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="VOLVER" />
 
 </RelativeLayout>

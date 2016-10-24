@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         AdaptadorTitulares adaptador = new AdaptadorTitulares(this);
-        Spinner lstOpciones = (Spinner) findViewById(R.id.lstOpciones);
+        final Spinner lstOpciones = (Spinner) findViewById(R.id.lstOpciones);
         lstOpciones.setAdapter(adaptador);
 
         lstOpciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
@@ -39,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView arg0, View arg1, int position, long id) {
 
 
-
                 String mensaje = "Titulo: " + datos[position].getTitulo() + ", Subtitulo: " + datos[position].getTitulo();
                 Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
+
+
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -51,9 +52,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static class ViewHolder{
+
+        TextView titulo;
+        TextView subtitulo;
+
+    }
+
     public class AdaptadorTitulares extends ArrayAdapter {
 
         Activity context;
+
 
         AdaptadorTitulares(Activity context){
 
@@ -62,48 +71,78 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        public View getDropDownView(int position, View convertView, ViewGroup parent){
+        public View getDropDownView(final int position, View convertView, ViewGroup parent){
 
             View vistaDesplegada = getView(position,convertView,parent);
 
 
-            final TextView tituloText = (TextView) findViewById(R.id.LblTitulo);
-            final TextView subtituloText = (TextView) findViewById(R.id.LblSubTitulo);
+            vistaDesplegada.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
 
-            String titulo = tituloText.getText().toString();
-            String subtitulo = subtituloText.getText().toString();
+                final TextView tituloText = (TextView) findViewById(R.id.LblTitulo);
+                tituloText.setText(datos[position].getTitulo());
+                final TextView subtituloText = (TextView) findViewById(R.id.LblSubTitulo);
+                subtituloText.setText(datos[position].getSubtitulo());
 
 
-            Intent miIntent = new Intent(MainActivity.this, Pantalla2.class);
-            Bundle miBundle = new Bundle();
-            Titular titular = new Titular(titulo,subtitulo,R.id.lbimagen);
+                String titulo = tituloText.getText().toString();
+                String subtitulo = subtituloText.getText().toString();
 
-            miBundle.putSerializable("información",titular);
-            miIntent.putExtras(miBundle);
-            startActivity(miIntent);
+
+                Intent miIntent = new Intent(MainActivity.this, Pantalla2.class);
+                Bundle miBundle = new Bundle();
+                Titular titular = new Titular(titulo,subtitulo,R.id.lbimagen);
+
+                miBundle.putSerializable("información",titular);
+                miIntent.putExtras(miBundle);
+                startActivity(miIntent);
+
+
+
+                }
+            });
 
             return vistaDesplegada;
 
         } //Método necesario para que despliegue la lista, sin este método no funciona
 
-        public View getView(int i, View convertView, ViewGroup parent){
+        public View getView(int i, View convertView, ViewGroup parent) {
 
-            LayoutInflater inflater = context.getLayoutInflater();
-            View item = inflater.inflate(R.layout.activity_titular,null);
+            View item = convertView;
+            ViewHolder holder;
 
-            TextView lblTitulo = (TextView) item.findViewById(R.id.LblTitulo);
-            lblTitulo.setText(datos[i].getTitulo());
+            if (item == null) {
 
-            TextView lblSubtitulo = (TextView) item.findViewById(R.id.LblSubTitulo);
-            lblSubtitulo.setText(datos[i].getSubtitulo());
+                LayoutInflater inflater = context.getLayoutInflater();
+                item = inflater.inflate(R.layout.activity_titular, null);
 
-            ImageView imagen = (ImageView) item.findViewById(R.id.lbimagen);
-            imagen.setBackground(getDrawable(datos[i].getImagen()));
+                holder = new ViewHolder();
+
+                holder.titulo = (TextView) item.findViewById(R.id.LblTitulo);
+                holder.subtitulo = (TextView) item.findViewById(R.id.LblSubTitulo);
+
+                item.setTag(holder);
+
+            } else {
+
+                holder=(ViewHolder) item.getTag();
+            }
 
 
-            return (item);
+
+                holder.titulo.setText(datos[i].getTitulo());
+
+
+                holder.subtitulo.setText(datos[i].getSubtitulo());
+
+                ImageView imagen = (ImageView) item.findViewById(R.id.lbimagen);
+                imagen.setBackground(getDrawable(datos[i].getImagen()));
+
+
+                return (item);
+            }
         }
 
-    }
 }
