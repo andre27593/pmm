@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     };
 
+    private TextView lblMensaje;
+    private ImageView miImagen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,26 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //Alternativa 1
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_inicial, menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem itemSubMenu)
-    {
-
-        switch (itemSubMenu.getItemId()) {
-            case R.id. SubMnuOpc1:
-                lblMensaje.setText("Submenu: Opcion 1!");
-                return true;
-            case R.id. SubMnuOpc2:
-                lblMensaje.setText ("Submenu: Opcion 2!"); ;
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }}
 
     public class AdaptadorTitulares extends ArrayAdapter {
 
