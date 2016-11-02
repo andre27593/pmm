@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -46,6 +49,27 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Alternativa 1
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_inicial, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem itemSubMenu)
+    {
+
+        switch (itemSubMenu.getItemId()) {
+            case R.id. SubMnuOpc1:
+                  .setText("Submenu: Opcion 1!");
+                return true;
+            case R.id. SubMnuOpc2:
+                lblMensaje.setText ("Submenu: Opcion 2!"); ;
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }}
 
     public class AdaptadorTitulares extends ArrayAdapter {
 
