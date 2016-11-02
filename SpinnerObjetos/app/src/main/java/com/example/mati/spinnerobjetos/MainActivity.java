@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (itemSubMenu.getItemId()) {
             case R.id. SubMnuOpc1:
-                  .setText("Submenu: Opcion 1!");
+                lblMensaje.setText("Submenu: Opcion 1!");
                 return true;
             case R.id. SubMnuOpc2:
                 lblMensaje.setText ("Submenu: Opcion 2!"); ;
