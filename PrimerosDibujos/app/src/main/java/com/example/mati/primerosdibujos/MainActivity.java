@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
             super(context);
         }
 
-        protected void onDraw(Canvas canvas){
+        protected void onDrawCirculo(Canvas canvas){
 
             Paint pincel = new Paint();
             pincel.setColor(Color.RED);
