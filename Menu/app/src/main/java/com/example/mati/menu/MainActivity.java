@@ -24,12 +24,7 @@ public class MainActivity extends AppCompatActivity {
         miImagen = (ImageView) findViewById(R.id.miImagen);
 
 
-        miImagen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                lanzarMenu(v);
-            }
-        });
+        miImagen.registerForContextMenu(miImagen);;
 
     }
 
@@ -85,9 +80,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void lanzarMenu(View v){
-        registerForContextMenu(miImagen);
-        openContextMenu(v);
-    }
+
 
 }

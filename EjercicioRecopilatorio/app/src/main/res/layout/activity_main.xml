@@ -68,11 +68,10 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:layout_marginTop="20px"
-        android:hint="Introduce el peso del paquete"
+        android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/editText" />
+        android:id="@+id/peso"
+        android:hint="Introduce el peso del paquete" />
 
     <Button
         android:layout_width="wrap_content"
