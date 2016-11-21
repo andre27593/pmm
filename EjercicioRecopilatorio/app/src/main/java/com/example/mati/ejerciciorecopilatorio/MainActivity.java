@@ -144,10 +144,11 @@ public class MainActivity extends AppCompatActivity {
 
                 double preciozona = Double.parseDouble(datos[lista.getSelectedItemPosition()].getPrecio());
 
-
+                Destino destino = new Destino(datos[lista.getSelectedItemPosition()].getZona(), datos[lista.getSelectedItemPosition()].getContinente(), datos[lista.getSelectedItemPosition()].getPrecio());
 
                 double preciopeso = 0;
                 double total = 0;
+
                 if(Double.parseDouble(peso.getText().toString())<6){
                     preciopeso = Double.parseDouble(peso.getText().toString())*1;
                     total = preciozona + preciopeso;
@@ -170,11 +171,13 @@ public class MainActivity extends AppCompatActivity {
                 miIntent.putExtra("radio1", radio1.getText().toString());
                 miIntent.putExtra("radio2", radio2.getText().toString());
 
-                miIntent.putExtra("editText", total);
+                miIntent.putExtra("peso", peso.getText().toString());
+                miIntent.putExtra("pesoprecio", Stringpreciopeso);
+
 
                 Bundle miBundle = new Bundle();
 
-                Destino destino = new Destino(zona, continente, precio);
+
 
                 miBundle.putSerializable("informacion", destino);
                 miIntent.putExtras(miBundle);

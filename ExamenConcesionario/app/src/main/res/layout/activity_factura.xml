@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/hprecio"
+        android:id="@+id/preciohora"
+        android:textSize="18sp"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/hprecio"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/peso"
+        android:layout_alignParentEnd="true"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textAlignment="textEnd" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/preciopeso"
+        android:layout_alignParentEnd="true"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textAlignment="textEnd" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/atotal"
+        android:id="@+id/total"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/atotal"
+        android:textAlignment="textEnd"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
+
+
+    <TextView
+        android:text="Modelo: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/modelo"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="84dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:id="@+id/tmodelo"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textAlignment="textEnd"
+        android:layout_width="320dp"
+        android:layout_alignBaseline="@+id/modelo"
+        android:layout_alignBottom="@+id/modelo"
+        android:layout_toEndOf="@+id/hprecio" />
+
+    <TextView
+        android:text="Extras: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/extras"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/hprecio"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/extras1"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textAlignment="textEnd"
+        android:layout_alignBaseline="@+id/extras"
+        android:layout_alignBottom="@+id/extras"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Coste Total: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/atotal"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="124dp" />
+
+    <TextView
+        android:text="Tiempo:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/hprecio"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:id="@+id/tiempo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tiempo"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ttiempo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/seguro"
+        android:layout_alignStart="@+id/ttiempo"
+        android:layout_marginStart="20dp"
+        android:id="@+id/tseguro" />
+
+    <TextView
+        android:text="Seguro:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:id="@+id/seguro"
+        android:layout_below="@+id/tiempo"
+        android:layout_alignStart="@+id/tiempo"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:text="Precio por Hora: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hprecio"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/modelo"
+        android:layout_toStartOf="@+id/total" />
+
+
+
+
+</RelativeLayout>
