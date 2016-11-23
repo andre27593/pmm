@@ -31,15 +31,9 @@ public class Factura extends AppCompatActivity {
         Bundle miBundle = getIntent().getExtras();
         Coche coche = (Coche) miBundle.getSerializable("coche");
 
-        if (coche.getModelo().equalsIgnoreCase("Megan")){
-            tmodelo.setText(coche.getModelo());
-        }
-        if (coche.getModelo().equalsIgnoreCase("Fiesta")){
-            tmodelo.setText(coche.getModelo());
-        }
-        if (coche.getModelo().equalsIgnoreCase("Leon")){
-            tmodelo.setText(coche.getModelo());
-        }
+
+        tmodelo.setText(coche.getModelo());
+
 
         preciohora.setText(String.valueOf(coche.getPrecio()) + "€");
 
@@ -49,14 +43,18 @@ public class Factura extends AppCompatActivity {
             seguro.setText(getIntent().getStringExtra("nomseguro"));
         }
 
-        if (getIntent().getBooleanExtra("checked", false) == true) {
+        if (getIntent().getBooleanExtra("checked1", false) == true) {
             extras.setText(String.valueOf("50€"));
         }
-        if (getIntent().getBooleanExtra("checked", false) == true) {
-            extras.setText(getIntent().getStringExtra("gps"));
+        if (getIntent().getBooleanExtra("checked2", false) == true) {
+            extras.setText(String.valueOf("100€"));
         }
-        if (getIntent().getBooleanExtra("checked", false) == true) {
-            extras.setText(getIntent().getStringExtra("150€"));
+        if (getIntent().getBooleanExtra("checked3", false) == true) {
+            extras.setText(String.valueOf("150€"));
+        }
+
+        if (extras.getText().toString().isEmpty()){
+            extras.setText("0");
         }
 
 

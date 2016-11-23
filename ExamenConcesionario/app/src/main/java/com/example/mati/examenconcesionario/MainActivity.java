@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,9 +22,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     //Lista para el spinner
     private Coche[] datos = new Coche[]{
-            new Coche("Megan: ", "Seat", 20),
-            new Coche("Leon: ", "Seat", 30),
-            new Coche("Fiesta: ", "Ford", 40),
+            new Coche("Megan ", "Seat", 20, R.drawable.megan1 ),
+            new Coche("Leon ", "Seat", 30, R.drawable.leon3),
+            new Coche("Fiesta ", "Ford", 40, R.drawable.fiesta1),
     };
 
 
@@ -60,19 +61,21 @@ public class MainActivity extends AppCompatActivity {
                 double total = 0;
 
                 double extra = 0;
-                boolean checked = false;
+                boolean checked1 = false;
+                boolean checked2 = false;
+                boolean checked3 = false;
                 if(aire.isChecked()){
-                    checked = true;
+                    checked1 = true;
                     extra = 50;
 
                 }
                 if(gps.isChecked()){
-                    checked = true;
+                    checked2 = true;
                     extra = 50+50;
 
                 }
                 if(radio.isChecked()){
-                    checked = true;
+                    checked3 = true;
                     extra = 50+50+50;
 
                 }
@@ -108,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Coche coche = new Coche (datos[coches.getSelectedItemPosition()].getModelo(),
                         datos[coches.getSelectedItemPosition()].getMarca(),
-                        datos[coches.getSelectedItemPosition()].getPrecio());
+                        datos[coches.getSelectedItemPosition()].getPrecio(),
+                        datos[coches.getSelectedItemPosition()].getImagen());
 
 
 
@@ -126,24 +130,24 @@ public class MainActivity extends AppCompatActivity {
 
 
                 double extra = 0;
-                boolean checked = false;
+                boolean checked1 = false;
+                boolean checked2 = false;
+                boolean checked3 = false;
+
                 if(aire.isChecked()){
-                    checked = true;
-                    extra = 50;
-                    miIntent.putExtra("aireacondicionado", aire.getText().toString());
-                    miIntent.putExtra("checked", checked);
+                    checked1 = true;
+                    extra += 50;
+                    miIntent.putExtra("checked1", checked1);
                 }
                 if(gps.isChecked()){
-                    checked = true;
-                    extra = 50+50;
-                    miIntent.putExtra("gps", gps.getText().toString());
-                    miIntent.putExtra("checked", checked);
+                    checked2 = true;
+                    extra += 50;
+                    miIntent.putExtra("checked2", checked2);
                 }
                 if(radio.isChecked()){
-                    checked = true;
-                    extra = 50+50+50;
-                    miIntent.putExtra("radio/DVD", radio.getText().toString());
-                    miIntent.putExtra("checked", checked);
+                    checked3 = true;
+                    extra += 50;
+                    miIntent.putExtra("checked3", checked3);
                 }
 
                 double total = 0;
@@ -226,6 +230,9 @@ public class MainActivity extends AppCompatActivity {
 
             TextView lblPrecio = (TextView)item.findViewById(R.id.lblprecio);
             lblPrecio.setText(String.valueOf(datos[i].getPrecio()) + "€");
+
+            ImageView imagen = (ImageView) item.findViewById(R.id.lblimagen);
+            imagen.setBackground(getDrawable(datos[i].getImagen()));
 
             return (item);
         }

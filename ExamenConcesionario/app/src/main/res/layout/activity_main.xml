@@ -23,35 +23,58 @@
         android:textAllCaps="true"
         android:layout_toStartOf="@+id/aire" />
 
-    <CheckBox
-        android:text="Aire Acondicionado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/aire"
-        android:layout_below="@+id/seguros"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="37dp"
- />
-
-    <CheckBox
-        android:text="GPS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gps"
-        android:layout_alignBaseline="@+id/aire"
-        android:layout_alignBottom="@+id/aire"
-        android:layout_alignParentStart="true"
-   />
-
     <!--android:hint para borrar el texto cuando clickes-->
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/coches"
+        style="@android:style/Widget.DeviceDefault.Light.Spinner"
+        android:layout_below="@+id/titulo"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo"
+        android:id="@+id/imageView"
+        android:layout_alignStart="@+id/seguros"
+        android:layout_alignBottom="@+id/coches"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/aire" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/preciototal"
+        android:text="ghthghg"
+        android:layout_alignBaseline="@+id/calcular"
+        android:layout_alignBottom="@+id/calcular"
+        android:layout_toEndOf="@+id/calcular" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Número de Horas"
+        android:ems="10"
+        android:layout_marginTop="14dp"
+        android:id="@+id/horas"
+        android:textAlignment="center"
+        android:layout_below="@+id/radio"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/seguros"
-        android:layout_below="@+id/coches"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="27dp">
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/aire"
+        android:layout_marginStart="21dp">
 
         <RadioButton
             android:text="Sin seguro"
@@ -74,34 +97,15 @@
             />
     </RadioGroup>
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/coches"
-        style="@android:style/Widget.DeviceDefault.Light.Spinner"
-        android:layout_below="@+id/titulo"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp" />
-
-
     <CheckBox
-        android:text="Radio/DVD"
+        android:text="Aire Acondicionado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radio"
-        android:layout_below="@+id/gps"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
+        android:id="@+id/aire"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/seguros"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/titulo"
-        android:layout_alignBottom="@+id/coches" />
+        android:layout_marginEnd="29dp" />
 
     <Button
         android:text="Total precio"
@@ -110,28 +114,25 @@
         android:id="@+id/calcular"
 
         android:layout_below="@+id/horas"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
+
+    <CheckBox
+        android:text="GPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gps"
+        android:layout_above="@+id/radio"
         android:layout_alignParentStart="true" />
 
-    <TextView
+    <CheckBox
+        android:text="Radio/DVD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/preciototal"
-        android:layout_alignBaseline="@+id/calcular"
-        android:layout_alignBottom="@+id/calcular"
-        android:layout_toEndOf="@+id/seguros" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Número de Horas"
-        android:ems="10"
-        android:layout_marginTop="14dp"
-        android:id="@+id/horas"
-        android:textAlignment="center"
-        android:layout_below="@+id/radio"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/radio"
+        android:layout_alignBaseline="@+id/aire"
+        android:layout_alignBottom="@+id/aire"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="Factura"
@@ -139,9 +140,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/factura"
 
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_below="@+id/calcular"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

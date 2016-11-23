@@ -9,11 +9,13 @@ public class Coche implements Serializable {
     private String modelo;
     private String marca;
     private double precio;
+    private int imagen;
 
-    public Coche(String modelo, String marca, double precio) {
+    public Coche(String modelo, String marca, double precio, int imagen) {
         this.modelo = modelo;
         this.marca = marca;
         this.precio = precio;
+        this.imagen = imagen;
     }
 
     public String getModelo() {
@@ -40,12 +42,21 @@ public class Coche implements Serializable {
         this.precio = precio;
     }
 
+    public int getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(int imagen) {
+        this.imagen = imagen;
+    }
+
     @Override
     public String toString() {
         return "Coche{" +
                 "modelo='" + modelo + '\'' +
                 ", marca='" + marca + '\'' +
-                ", precio='" + precio + '\'' +
+                ", precio=" + precio +
+                ", imagen=" + imagen +
                 '}';
     }
 }
