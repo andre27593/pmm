@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
             new Coche("Fiesta ", "Ford", 40, R.drawable.fiesta1),
     };
 
+    private int[] megan = {R.drawable.megan1,R.drawable.megan3};
+    private int[] leon = {R.drawable.leon1,R.drawable.leon2,R.drawable.leon3};
+    private int[] fiesta = {R.drawable.fiesta1,R.drawable.fiesta2,R.drawable.fiesta3};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
