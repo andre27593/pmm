@@ -127,6 +127,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tiempo"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
         android:id="@+id/ttiempo" />
 
     <TextView
@@ -135,6 +138,9 @@
         android:layout_alignBottom="@+id/seguro"
         android:layout_alignStart="@+id/ttiempo"
         android:layout_marginStart="20dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
         android:id="@+id/tseguro" />
 
     <TextView
