@@ -43,15 +43,7 @@ public class Factura extends AppCompatActivity {
             seguro.setText(getIntent().getStringExtra("nomseguro"));
         }
 
-        if (getIntent().getBooleanExtra("checked1", false) == true) {
-            extras.setText(String.valueOf("50€"));
-        }
-        if (getIntent().getBooleanExtra("checked2", false) == true) {
-            extras.setText(String.valueOf("100€"));
-        }
-        if (getIntent().getBooleanExtra("checked3", false) == true) {
-            extras.setText(String.valueOf("150€"));
-        }
+        extras.setText(getIntent().getStringExtra("extra"));
 
         if (extras.getText().toString().isEmpty()){
             extras.setText("0");

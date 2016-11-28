@@ -65,27 +65,23 @@ public class MainActivity extends AppCompatActivity {
                 double total = 0;
 
                 double extra = 0;
-                boolean checked1 = false;
-                boolean checked2 = false;
-                boolean checked3 = false;
+
                 if(aire.isChecked()){
-                    checked1 = true;
-                    extra = 50;
+                    extra += 50;
 
                 }
+
                 if(gps.isChecked()){
-                    checked2 = true;
-                    extra = 50+50;
+                    extra += 50;
 
                 }
+
                 if(radio.isChecked()){
-                    checked3 = true;
-                    extra = 50+50+50;
+                    extra += 50;
 
                 }
 
                 double ext = extra + preciocoche;
-
 
                 if (seguros.getCheckedRadioButtonId() == R.id.sin){
                     total = ext;
@@ -130,32 +126,25 @@ public class MainActivity extends AppCompatActivity {
 
                 preciocoche = Double.parseDouble(horas.getText().toString()) * preciocoches;
                 miIntent.putExtra("horas", horas.getText().toString());
-                miIntent.putExtra("preciocoche", String.valueOf(preciocoche));
+
 
 
                 double extra = 0;
-                boolean checked1 = false;
-                boolean checked2 = false;
-                boolean checked3 = false;
 
                 if(aire.isChecked()){
-                    checked1 = true;
                     extra += 50;
-                    miIntent.putExtra("checked1", checked1);
+
                 }
                 if(gps.isChecked()){
-                    checked2 = true;
                     extra += 50;
-                    miIntent.putExtra("checked2", checked2);
+
                 }
                 if(radio.isChecked()){
-                    checked3 = true;
                     extra += 50;
-                    miIntent.putExtra("checked3", checked3);
+
                 }
 
                 double total = 0;
-
                 double ext = extra + preciocoche;
 
 
@@ -169,10 +158,10 @@ public class MainActivity extends AppCompatActivity {
                     total = ext*1.20;
                     nomseguro = riesgo.getText().toString();
                 }
+
                 miIntent.putExtra("nomseguro", nomseguro);
 
-
-                miIntent.putExtra("extra", String.valueOf(ext));
+                miIntent.putExtra("extra", String.valueOf(extra));
                 miIntent.putExtra("total", String.valueOf(total));
 
                 Bundle miBundle = new Bundle();
