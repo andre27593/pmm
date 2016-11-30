@@ -19,17 +19,24 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     //Lista para el spinner
-    private Coche[] datos = new Coche[]{
-            new Coche("Megan ", "Seat", 20, R.drawable.megan1 ),
-            new Coche("Leon ", "Seat", 30, R.drawable.leon3),
-            new Coche("Fiesta ", "Ford", 40, R.drawable.fiesta1),
-    };
 
     private int[] megan = {R.drawable.megan1,R.drawable.megan3};
     private int[] leon = {R.drawable.leon1,R.drawable.leon2,R.drawable.leon3};
     private int[] fiesta = {R.drawable.fiesta1,R.drawable.fiesta2,R.drawable.fiesta3};
+
+    Random imagenes = new Random();
+    int aleatorio = imagenes.nextInt(3);
+
+    private Coche[] datos = new Coche[]{
+            new Coche("Megan ", "Seat", 20, megan[aleatorio]),
+            new Coche("Leon ", "Seat", 30, leon[aleatorio]),
+            new Coche("Fiesta ", "Ford", 40, fiesta[aleatorio])
+    };
+
 
 
     @Override
@@ -126,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
 
                 preciocoche = Double.parseDouble(horas.getText().toString()) * preciocoches;
                 miIntent.putExtra("horas", horas.getText().toString());
-
 
 
                 double extra = 0;

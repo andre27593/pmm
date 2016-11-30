@@ -26,6 +26,7 @@ public class Factura extends AppCompatActivity {
         TextView total = (TextView) findViewById(R.id.total);
         TextView tiempo = (TextView) findViewById(R.id.ttiempo);
         TextView tmodelo = (TextView) findViewById(R.id.tmodelo);
+        ImageView imagen = (ImageView) findViewById(R.id.imagen);
 
 
         Bundle miBundle = getIntent().getExtras();
@@ -34,6 +35,7 @@ public class Factura extends AppCompatActivity {
 
         tmodelo.setText(coche.getModelo());
 
+        imagen.setBackground(getDrawable(coche.getImagen()));
 
         preciohora.setText(String.valueOf(coche.getPrecio()) + "€");
 

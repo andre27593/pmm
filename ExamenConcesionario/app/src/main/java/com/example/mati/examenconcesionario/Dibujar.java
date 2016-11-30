@@ -31,34 +31,69 @@ public class Dibujar extends AppCompatActivity {
 
             Paint circulo1 = new Paint();
             Paint circulo2 = new Paint();
-            Paint coche1 = new Paint();
-            Paint coche2 = new Paint();
-            Paint coche3 = new Paint();
+            Paint linea3 = new Paint();
+            Paint linea1 = new Paint();
+            Paint linea2 = new Paint();
+            Paint linea4 = new Paint();
+            Paint linea5 = new Paint();
+            Paint ventana1 = new Paint();
+            Paint ventana2 = new Paint();
 
 
             circulo1.setColor(Color.BLACK);
             circulo1.setStrokeWidth(15);
             circulo1.setStyle(Paint.Style.STROKE);
 
-            canvas.drawCircle(700, 500, 140, circulo1);
+            canvas.drawCircle(700, 500, 110, circulo1);
 
             circulo2.setColor(Color.BLACK);
             circulo2.setStrokeWidth(15);
             circulo2.setStyle(Paint.Style.STROKE);
 
-            canvas.drawCircle(300, 500, 140, circulo2);
+            canvas.drawCircle(300, 500, 110, circulo2);
 
-            coche1.setColor(Color.BLACK);
-            coche1.setStrokeWidth(15);
-            coche1.setStyle(Paint.Style.STROKE);
+            linea1.setColor(Color.BLACK);
+            linea1.setStrokeWidth(15);
+            linea1.setStyle(Paint.Style.STROKE);
 
-            canvas.drawLine(400, 500, 600, 500, coche1);
+            canvas.drawLine(900, 500, 110, 500, linea1);
 
-            coche2.setColor(Color.BLACK);
-            coche2.setStrokeWidth(15);
-            coche2.setStyle(Paint.Style.STROKE);
+            linea2.setColor(Color.BLACK);
+            linea2.setStrokeWidth(15);
+            linea2.setStyle(Paint.Style.STROKE);
 
-            canvas.drawLine(800, 500, 100, 500, coche2);
+            canvas.drawLine(900, 500, 900, 180, linea2);
+
+            linea3.setColor(Color.BLACK);
+            linea3.setStrokeWidth(15);
+            linea3.setStyle(Paint.Style.STROKE);
+
+            canvas.drawLine(500, 150, 900, 180, linea3);
+
+            linea4.setColor(Color.BLUE);
+            linea4.setStrokeWidth(15);
+            linea4.setStyle(Paint.Style.STROKE);
+
+            canvas.drawLine(120, 280, 500, 150, linea4);
+
+            linea5.setColor(Color.BLACK);
+            linea5.setStrokeWidth(15);
+            linea5.setStyle(Paint.Style.STROKE);
+
+            canvas.drawLine(120, 500, 120, 280, linea5);
+
+            ventana1.setColor(Color.BLUE);
+            ventana1.setStrokeWidth(15);
+            ventana1.setStyle(Paint.Style.FILL_AND_STROKE);
+
+            canvas.drawLine(500, 150, 500, 280, ventana1);
+
+            ventana1.setColor(Color.BLUE);
+            ventana1.setStrokeWidth(15);
+            ventana1.setStyle(Paint.Style.FILL_AND_STROKE);
+
+            canvas.drawLine(120, 280, 500, 280, ventana1);
+
 
 
         }
