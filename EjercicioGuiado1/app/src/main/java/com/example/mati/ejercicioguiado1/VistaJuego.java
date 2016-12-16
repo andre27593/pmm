@@ -34,7 +34,7 @@ public class VistaJuego extends View {
     private int giroBici;	//Incremento direccion de la bici
     private float aceleracionBici;//Aumento de velocidad en la bici
     private static final int PASO_GIRO_BICI = 5;
-    private static final float PASO_ACELERACION_BICI = 0.5f;
+    private static final float PASO_ACELERACION_BICI = 2.5f;
 
     // THREAD Y TIEMPO //
     //Hilo encargado de procesar el tiempo
@@ -191,11 +191,39 @@ public class VistaJuego extends View {
 
     }
 
-    private class HiloJuego extends Thread {
+    class HiloJuego extends Thread {
+
+        private boolean pausa,corriendo;
+
+        public synchronized void pausar(){
+            pausa=true;
+        }
+
+        public synchronized void reanudar(){
+            pausa=false;
+            notify();
+        }
+
+        public void detener(){
+            corriendo=false;
+            if(pausa) reanudar();
+        }
+
+
         @Override
         public void run() {
-            while (true) {
+            corriendo=true;
+            while (corriendo) {
                 actualizaMovimiento();
+                synchronized (this){
+                    while(pausa){
+                        try {
+                            wait();
+                        }catch (Exception e){
+
+                        }
+                    }
+                }
             }
         }
     }
