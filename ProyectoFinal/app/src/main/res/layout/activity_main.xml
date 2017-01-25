@@ -11,6 +11,7 @@
     android:orientation="vertical"
     android:background="@color/colorFondo"
     tools:context="com.example.mati.proyectofinal.MainActivity"
+
     android:weightSum="1">
 
     <TextView

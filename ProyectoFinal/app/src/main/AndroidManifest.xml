@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Registro" />
-        <activity android:name=".Libreria"></activity>
+        <activity android:name=".Libreria" />
+        <activity android:name=".Fragmento" />
+        <activity android:name=".Pedido"></activity>
     </application>
 
 </manifest>

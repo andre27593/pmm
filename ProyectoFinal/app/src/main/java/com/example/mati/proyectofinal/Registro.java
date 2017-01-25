@@ -18,27 +18,31 @@ public class Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        BaseDeDatos cliBDh = new BaseDeDatos(this, "BaseDeDatos", null, 1);
+        BaseUsuarios cliBDh = new BaseUsuarios(this, "BaseUsu", null, 1);
         final SQLiteDatabase bd = cliBDh.getWritableDatabase();
 
         final Button volver = (Button) findViewById(R.id.volver);
         final Button guardar = (Button) findViewById(R.id.guardar);
         final EditText usu = (EditText) findViewById(R.id.usuario);
         final EditText cont = (EditText) findViewById(R.id.contraseña);
+        final EditText conf = (EditText) findViewById(R.id.conf);
+        final EditText nom = (EditText) findViewById(R.id.nom);
+        final EditText email = (EditText) findViewById(R.id.email);
+
 
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String usuario = "Usuario: " + usu.getText();
-                String contraseña = "Contraseña: " +cont.getText();
 
-                bd.execSQL("INSERT INTO Usuarios (usuario, contraseña) " +
-                    "VALUES ('" + usuario + "', '" + contraseña + "')");
 
-                Toast toast = Toast.makeText(getApplicationContext(), "Registro guardado", Toast.LENGTH_SHORT);
+                bd.execSQL("INSERT INTO Usuarios (usuario, contraseña, nombre, email) " +
+                    "VALUES ('" + usu.getText().toString() + "', '" + cont.getText().toString() + "', " +conf.getText().toString()+ "',"+nom.getText().toString()+"',"+email.getText().toString()+"')");
 
-                toast.show();
+               
+
+                Toast.makeText(getApplicationContext(), "Registro guardado", Toast.LENGTH_SHORT).show();
+
             }
         });
 

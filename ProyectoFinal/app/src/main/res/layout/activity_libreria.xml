@@ -8,6 +8,161 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.mati.proyectofinal.Libreria">
+
+    tools:context="com.example.mati.proyectofinal.Libreria"
+    android:weightSum="1">
+
+    <TextView
+        android:text="BIENVENIDO A LA LIBRERÍA DE ANDREA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/titulo"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        />
+
+
+    <!--android:hint para borrar el texto cuando clickes-->
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/libros"
+        style="@android:style/Widget.DeviceDefault.Light.Spinner"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/subtitulo"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="ESCOGE EL LIBRO QUE QUIERAS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:id="@+id/subtitulo"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/titulo"
+        android:layout_alignParentStart="true" />
+
+
+
+
+    <CheckBox
+        android:text="TXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt"
+        android:layout_alignBaseline="@+id/pdf"
+        android:layout_alignBottom="@+id/pdf"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:text="ePUB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/epub"
+        android:layout_alignBaseline="@+id/mobi"
+        android:layout_alignBottom="@+id/mobi"
+        android:layout_alignStart="@+id/txt" />
+
+    <CheckBox
+        android:text="HTML"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/html"
+        android:layout_alignBaseline="@+id/epub"
+        android:layout_alignBottom="@+id/epub"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="18dp" />
+
+    <CheckBox
+        android:text="MOBI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mobi"
+        android:layout_marginBottom="29dp"
+        android:layout_above="@+id/pdf"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:text="PDF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pdf"
+        android:layout_marginBottom="26dp"
+        android:layout_above="@+id/factura"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="ESCOGE EL FORMATO DEL EBOOK QUE QUIERES"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:id="@+id/formatofrase"
+        android:layout_marginBottom="45dp"
+        android:layout_above="@+id/mobi"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:text="Ebook"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ebook"
+        android:layout_below="@+id/libros"
+        android:layout_toEndOf="@+id/radiogroup"
+        android:layout_marginTop="24dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radiogroup"
+        android:layout_alignTop="@+id/ebook"
+        android:layout_alignParentStart="true">
+
+    <RadioButton
+        android:text="Tapa dura"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/normal"
+        android:layout_above="@+id/formatofrase"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="25dp" />
+
+    <RadioButton
+        android:text="De bolsillo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bolsillo"
+        android:layout_weight="1"
+        android:layout_above="@+id/normal"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp" />
+
+    </RadioGroup>
+
+    <Button
+        android:text="FACTURA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/factura"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/radiogroup"
+        android:layout_marginEnd="20dp" />
+
+    <Button
+        android:text="CANCELAR PEDIDO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/html"
+        android:layout_marginEnd="11dp"
+        android:visibility="invisible"
+        android:id="@+id/volver" />
 
 </RelativeLayout>

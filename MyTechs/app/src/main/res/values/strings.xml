@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">My Techs</string>
+
+    <string name="descripcion_input">Descripción</string>
+
+    <!-- Etiquetas -->
+    <string name="estado_label">Estado</string>
+    <string name="descripcion_label">Descripción</string>
+    <string name="tecnico_label">Técnico</string>
+    <string name="categoria_label">Categoría</string>
+    <string name="prioridad_label">Prioridad</string>
+
+    <!-- Arreglos para spinners -->
+    <string-array name="prioridad">
+        <item>Alta</item>
+        <item>Media</item>
+        <item>Baja</item>
+    </string-array>
+
+    <string-array name="tecnico">
+        <item>Técnico #1</item>
+        <item>Técnico #2</item>
+        <item>Técnico #3</item>
+    </string-array>
+
+    <string-array name="categoria">
+        <item>Factibilidad</item>
+        <item>Mantenimiento</item>
+        <item>Migración</item>
+    </string-array>
+
+    <string-array name="estado">
+        <item>Abierta</item>
+        <item>En Curso</item>
+        <item>Cerrada</item>
+    </string-array>
+
+    <!-- Titulos de actividades -->
+    <string name="title_activity_insert">Insertar nuevo registro</string>
+    <string name="title_activity_update">Editar actividad</string>
+    <string name="title_activity_detail">Detalle</string>
+
+    <!-- Action Buttons -->
+    <string name="action_delete">Borrar</string>
+    <string name="action_settings">Configuración</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_discard">Descartar Cambios</string>
+</resources>
