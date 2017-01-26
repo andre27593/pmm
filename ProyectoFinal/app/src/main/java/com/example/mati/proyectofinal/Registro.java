@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,13 +12,15 @@ import android.widget.Toast;
 
 public class Registro extends AppCompatActivity {
 
+    private BaseDeDatos cliBDh;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        BaseUsuarios cliBDh = new BaseUsuarios(this, "BaseUsu", null, 1);
-        final SQLiteDatabase bd = cliBDh.getWritableDatabase();
+        cliBDh = new BaseDeDatos(this, "BaseDeDatos", null, 1);
+
 
         final Button volver = (Button) findViewById(R.id.volver);
         final Button guardar = (Button) findViewById(R.id.guardar);
@@ -34,10 +35,11 @@ public class Registro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                SQLiteDatabase bd = cliBDh.getWritableDatabase();
 
-
-                bd.execSQL("INSERT INTO Usuarios (usuario, contraseña, nombre, email) " +
-                    "VALUES ('" + usu.getText().toString() + "', '" + cont.getText().toString() + "', " +conf.getText().toString()+ "',"+nom.getText().toString()+"',"+email.getText().toString()+"')");
+                bd.execSQL("INSERT INTO Usuarios (usuario, contraseña, confirmar, nombre, correo) VALUES " +
+                        "('"+usu.getText().toString()+"', '"+cont.getText().toString()+"', '"+conf.getText().toString()+"', '"+nom.getText().toString()+"'" +
+                        ", '"+email.getText().toString()+"')");
 
                
 

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Abrimos la base de datos en modo escritura
-        BaseUsuarios cliBDh = new BaseUsuarios(this, "BaseDeDatos", null, 1);
+        BaseDeDatos cliBDh = new BaseDeDatos(this, "BaseDeDatos", null, 1);
 
         //Obtenemos referencia a la base de datos para poder modificarla.
         final SQLiteDatabase bd = cliBDh.getWritableDatabase();

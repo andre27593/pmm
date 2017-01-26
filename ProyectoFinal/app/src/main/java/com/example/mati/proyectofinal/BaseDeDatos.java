@@ -5,13 +5,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by mati on 17/01/17.
+ * Created by mati on 25/01/17.
  */
 
 public class BaseDeDatos extends SQLiteOpenHelper {
 
-    String usuarios= "CREATE TABLE Usuarios (usuario TEXT, contraseña TEXT)";
+    String sqlCreateUsuarios = "CREATE TABLE Usuarios (usuario TEXT NOT NULL, contraseña TEXT NOT NULL, confirmar TEXT NOT NULL, nombre TEXT, correo TEXT)";
 
+    String sqlCreateLibroS = "CREATE TABLE Libros (titulo TEXT NOT NULL, subtitulo TEXT NOT NULL, precio TEXT NOT NULL, genero TEXT)";
 
     public BaseDeDatos(Context contexto, String nombre, SQLiteDatabase.CursorFactory almacen, int version){
         super(contexto, nombre, almacen, version);
@@ -24,24 +25,19 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase bd) {
         //Ejecutamos la sentencia SQL para crear la tabla Clientes
         //El metodo execSQL se limita a ejecutar directamente el codigo SQL que le pasemos.
-        bd.execSQL(usuarios);
+
+        bd.execSQL(sqlCreateUsuarios);
+        bd.execSQL(sqlCreateLibroS);
     }
+
 
     //Este metodo se lanza automaticamente cuando es necesaria una actualizacion de la estructura
     //de la base de datos o una conversion de los datos.
     @Override
     public void onUpgrade(SQLiteDatabase bd, int versionAnterior, int versionNueva) {
-        //NOTA: Para simplificar este ejemplo eliminamos la tabla anterior y la creamos de nuevo
-        //		con el nuevo formato.
-        //		Lo normal sera realizar una migracion o traspaso de los datos de la tabla antigua
-        //		a la nueva, con la consiguiente complicacion que ello conlleva.
 
-        //Eliminamos la version anterior de la tabla
-        bd.execSQL("DROP TABLE IF EXISTS Usuarios");
+        onCreate(bd);
 
-        //Creamos la nueva versi�n de la tabla
-        bd.execSQL(usuarios);
     }
-
 
 }
