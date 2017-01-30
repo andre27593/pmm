@@ -80,21 +80,48 @@
         android:layout_marginEnd="18dp" />
 
     <CheckBox
-        android:text="MOBI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/mobi"
-        android:layout_marginBottom="29dp"
-        android:layout_above="@+id/pdf"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
         android:text="PDF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pdf"
         android:layout_marginBottom="26dp"
         android:layout_above="@+id/factura"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="FACTURA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/factura"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/radiogroup"
+        android:layout_marginEnd="20dp" />
+
+    <Button
+        android:text="CANCELAR PEDIDO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/html"
+        android:layout_marginEnd="11dp"
+        android:visibility="invisible"
+        android:id="@+id/volver" />
+
+    <CheckBox
+        android:text="Ebook"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ebook"
+        android:layout_alignTop="@+id/radiogroup"
+        android:layout_alignEnd="@+id/formatofrase" />
+
+    <CheckBox
+        android:text="MOBI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mobi"
+        android:layout_marginBottom="17dp"
+        android:layout_above="@+id/pdf"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -105,24 +132,15 @@
         android:textAlignment="center"
         android:textAllCaps="true"
         android:id="@+id/formatofrase"
-        android:layout_marginBottom="45dp"
-        android:layout_above="@+id/mobi"
-        android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:text="Ebook"
-        android:layout_width="137dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/ebook"
-        android:layout_below="@+id/libros"
-        android:layout_toEndOf="@+id/radiogroup"
-        android:layout_marginTop="24dp" />
+        android:layout_above="@+id/epub"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="19dp" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radiogroup"
-        android:layout_alignTop="@+id/ebook"
+        android:layout_centerVertical="true"
         android:layout_alignParentStart="true">
 
     <RadioButton
@@ -145,24 +163,5 @@
         android:layout_marginBottom="15dp" />
 
     </RadioGroup>
-
-    <Button
-        android:text="FACTURA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/factura"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/radiogroup"
-        android:layout_marginEnd="20dp" />
-
-    <Button
-        android:text="CANCELAR PEDIDO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/html"
-        android:layout_marginEnd="11dp"
-        android:visibility="invisible"
-        android:id="@+id/volver" />
 
 </RelativeLayout>

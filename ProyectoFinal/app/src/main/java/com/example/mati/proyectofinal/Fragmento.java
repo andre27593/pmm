@@ -51,11 +51,47 @@ public class Fragmento extends Fragment {
         final TextView pregunta = (TextView)view.findViewById(R.id.pregunta);
 
         final TextView tipo = (TextView)view.findViewById(R.id.libro_tipo);
-        final TextView formato = (TextView)view.findViewById(R.id.libro_formato);
         final TextView ebook = (TextView)view.findViewById(R.id.libro_ebook);
+        final TextView formato = (TextView)view.findViewById(R.id.libro_formato);
+        final TextView precio_final = (TextView)view.findViewById(R.id.libro_final);
+        final TextView descuento = (TextView)view.findViewById(R.id.libro_descuento);
+
+        final TextView titulo = (TextView)view.findViewById(R.id.libro_titulo);
+        final TextView subtitulo = (TextView)view.findViewById(R.id.libro_subtitulo);
+        final TextView autor = (TextView)view.findViewById(R.id.libro_autor);
+        final TextView precio = (TextView)view.findViewById(R.id.libro_precio);
+        final TextView genero = (TextView)view.findViewById(R.id.libro_genero);
 
         Bundle miBundle = this.getArguments();
 
+        Libros libros = (Libros) miBundle.getSerializable("datos");
+
+
+        titulo.setText("Titulo " +libros.getTitulo());
+        subtitulo.setText("Subtitulo " +libros.getSubtitulo());
+        autor.setText("Autor " +libros.getAutor());
+        precio.setText("Precio " +libros.getPrecio());
+        genero.setText("Genero " +libros.getGenero());
+
+
+        tipo.setText("Tipo de libro " +this.getArguments().getString("radiogroup"));
+
+
+        if(this.getArguments().getBoolean("ebook")==true) {
+            ebook.setText("Has escogido ebook");
+            formato.setText("Formato ebook " +this.getArguments().getString("formato")+" "+this.getArguments().getString("formato1")
+                    +" "+this.getArguments().getString("formato2")+" "+this.getArguments().getString("formato3")+" "+this.getArguments().getString("formato4"));
+        }else{
+            ebook.setText("No has escogido ebook");
+        }
+
+        if(this.getArguments().getBoolean("dos")==true){
+            descuento.setText("El descuento aplicado es " +this.getArguments().getDouble("descuento"));
+            precio_final.setText("El precio después de aplicar el descuento es " +this.getArguments().getDouble("precio final"));
+        }
+
+        descuento.setText("El descuento aplicado es " +this.getArguments().getDouble("descuento"));
+        precio_final.setText("El precio después de aplicar el descuento es " +this.getArguments().getDouble("precio final"));
 
 
 

@@ -45,6 +45,7 @@ public class Registro extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Registro guardado", Toast.LENGTH_SHORT).show();
 
+
             }
         });
 

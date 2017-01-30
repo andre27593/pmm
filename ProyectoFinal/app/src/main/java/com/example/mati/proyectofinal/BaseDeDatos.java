@@ -12,7 +12,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     String sqlCreateUsuarios = "CREATE TABLE Usuarios (usuario TEXT NOT NULL, contraseña TEXT NOT NULL, confirmar TEXT NOT NULL, nombre TEXT, correo TEXT)";
 
-    String sqlCreateLibroS = "CREATE TABLE Libros (titulo TEXT NOT NULL, subtitulo TEXT NOT NULL, precio TEXT NOT NULL, genero TEXT)";
+    String sqlCreateLibroS = "CREATE TABLE Libros (titulo TEXT NOT NULL, subtitulo TEXT NOT NULL, autor TEXT NOT NULL, precio TEXT NOT NULL, genero TEXT)";
 
     public BaseDeDatos(Context contexto, String nombre, SQLiteDatabase.CursorFactory almacen, int version){
         super(contexto, nombre, almacen, version);
