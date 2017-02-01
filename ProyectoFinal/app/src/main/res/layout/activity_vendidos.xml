@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_vendidos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.mati.proyectofinal.Vendidos">
+
+    <Button
+        android:text="Ir a la librería"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="89dp"
+        android:id="@+id/volver" />
+
+    <TextView
+        android:text="1. Cazadores de Sombras. La dama de medianoche"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/uno"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_marginTop="51dp" />
+
+    <TextView
+        android:text="2. Harry Potter 5. La orden del fénix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dos"
+        android:layout_below="@+id/uno"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_marginTop="39dp" />
+
+    <TextView
+        android:text="3. La Quinta Ola"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tres"
+        android:layout_below="@+id/dos"
+        android:layout_alignParentStart="true"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_marginTop="33dp" />
+
+    <TextView
+        android:text="LIBROS MÁS VENDIDOS ESTE MES"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:id="@+id/textView3" />
+
+
+</RelativeLayout>

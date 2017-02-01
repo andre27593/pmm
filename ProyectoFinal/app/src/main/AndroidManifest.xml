@@ -18,7 +18,9 @@
         <activity android:name=".Registro" />
         <activity android:name=".Libreria" />
         <activity android:name=".Fragmento" />
-        <activity android:name=".Pedido"></activity>
+        <activity android:name=".Pedido" />
+        <activity android:name=".SobreNosotros" />
+        <activity android:name=".Vendidos"></activity>
     </application>
 
 </manifest>

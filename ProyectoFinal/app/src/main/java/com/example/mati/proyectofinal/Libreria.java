@@ -1,6 +1,7 @@
 package com.example.mati.proyectofinal;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -21,11 +22,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +31,7 @@ import android.widget.Toast;
 public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentInteractionListener{
 
     private Libros[] datos;
+    private FragmentManager fragmentManager = getFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,7 +209,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
                 miBundle.putSerializable ("descuento", descuento);
                 miBundle.putSerializable("precio final", precio_final);
 
-                FragmentManager fragmentManager = getFragmentManager();
+
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
 
                 Fragmento fragment = new Fragmento();
@@ -315,14 +314,14 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
     public boolean onOptionsItemSelected (MenuItem item){
         switch (item.getItemId()){
             case R.id.acerca:
-                Intent acerca = new Intent(Libreria.this, AcercaDe.class);
+                Intent acerca = new Intent(Libreria.this, SobreNosotros.class);
                 startActivity(acerca);
                 return true;
-           /* case R.id.menu_dibujar:
-                Intent dibujo = new Intent(Libreria.this, Dibujar.class);
-                startActivity(dibujo);
+            case R.id.vendidos:
+                DialogFragment vendidos = Vendidos.newInstance("Vendidos");
+                vendidos.show(getFragmentManager(),"vendidos");
                 return true;
-            */default:
+            default:
                 return super.onOptionsItemSelected(item);
         }
     }

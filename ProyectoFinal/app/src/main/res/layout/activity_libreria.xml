@@ -88,25 +88,6 @@
         android:layout_above="@+id/factura"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:text="FACTURA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/factura"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/radiogroup"
-        android:layout_marginEnd="20dp" />
-
-    <Button
-        android:text="CANCELAR PEDIDO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/html"
-        android:layout_marginEnd="11dp"
-        android:visibility="invisible"
-        android:id="@+id/volver" />
-
     <CheckBox
         android:text="Ebook"
         android:layout_width="137dp"
@@ -163,5 +144,22 @@
         android:layout_marginBottom="15dp" />
 
     </RadioGroup>
+
+    <Button
+        android:text="FACTURA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/factura"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="CANCELAR PEDIDO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/volver"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/titulo" />
 
 </RelativeLayout>
