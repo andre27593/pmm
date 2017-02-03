@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 public class SobreNosotros extends AppCompatActivity {
 
+    //DEFINIR UN ACERCA DE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

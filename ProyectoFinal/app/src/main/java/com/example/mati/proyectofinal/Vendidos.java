@@ -20,6 +20,7 @@ public class Vendidos extends android.app.DialogFragment {
 
     }
 
+    //DEFINIR EL DIALOG FRAGMENT Y UN BOTON PARA VOLVER A LA LIBRERÍA
     public Dialog onCreateDialog(Bundle savedInstanceState){
 
 

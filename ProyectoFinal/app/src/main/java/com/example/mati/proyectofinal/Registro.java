@@ -19,6 +19,7 @@ public class Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        //VOLVEMOS A ABRIR LA BASE DE DATOS
         cliBDh = new BaseDeDatos(this, "BaseDeDatos", null, 1);
 
 
@@ -30,7 +31,8 @@ public class Registro extends AppCompatActivity {
         final EditText nom = (EditText) findViewById(R.id.nom);
         final EditText email = (EditText) findViewById(R.id.email);
 
-
+        //DEFINIR EL BOTON PARA GUARDAR LOS DATOS DEL USUARIO EN LA TABLA USUARIOS
+        //CON UN INSERT DE TODOS LOS CAMPOS QUE TIENE LA TABLA
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,14 +44,14 @@ public class Registro extends AppCompatActivity {
                         ", '"+email.getText().toString()+"')");
 
                
-
+                //CUANDO SE GUARDA SALE EL MENSAJE DE REGISTRO GUARDADO
                 Toast.makeText(getApplicationContext(), "Registro guardado", Toast.LENGTH_SHORT).show();
 
 
             }
         });
 
-
+        //CON EL BOTON VOLVER VOLVEMOS A LA PANTALLA DE LOG IN
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

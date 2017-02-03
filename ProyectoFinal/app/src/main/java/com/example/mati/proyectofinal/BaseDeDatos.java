@@ -10,9 +10,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BaseDeDatos extends SQLiteOpenHelper {
 
-    String sqlCreateUsuarios = "CREATE TABLE Usuarios (usuario TEXT NOT NULL, contraseña TEXT NOT NULL, confirmar TEXT NOT NULL, nombre TEXT, correo TEXT)";
+    //CREACIÓN DE TABLAS
 
-    String sqlCreateLibroS = "CREATE TABLE Libros (titulo TEXT NOT NULL, subtitulo TEXT NOT NULL, autor TEXT NOT NULL, precio TEXT NOT NULL, genero TEXT)";
+    String sqlCreateUsuarios = "CREATE TABLE Usuarios (id integer PRIMARY KEY AUTOINCREMENT, usuario TEXT NOT NULL, contraseña TEXT NOT NULL, confirmar TEXT NOT NULL, nombre TEXT, correo TEXT);";
+
+    String sqlCreateLibroS = "CREATE TABLE Libros (titulo TEXT NOT NULL, subtitulo TEXT NOT NULL, autor TEXT NOT NULL, precio TEXT NOT NULL, genero TEXT);";
+
+    String sqlCreatePedidos = "CREATE TABLE Pedidos (id INTEGER, titulo TEXT NOT NULL, subtitulo TEXT NOT NULL, autor TEXT NOT NULL, precio TEXT NOT NULL, genero TEXT, tipo TEXT, ebook BOOLEAN, formato TEXT, descuento TEXT, final TEXT, " +
+            "FOREIGN KEY (id) REFERENCES Usuarios (id));";
+
 
     public BaseDeDatos(Context contexto, String nombre, SQLiteDatabase.CursorFactory almacen, int version){
         super(contexto, nombre, almacen, version);
@@ -28,6 +34,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
         bd.execSQL(sqlCreateUsuarios);
         bd.execSQL(sqlCreateLibroS);
+        bd.execSQL(sqlCreatePedidos);
     }
 
 

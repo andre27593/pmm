@@ -3,6 +3,8 @@ package com.example.mati.proyectofinal;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -41,10 +43,12 @@ public class Fragmento extends Fragment {
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_fragmento, container, false);
+
 
         final Button confirmar = (Button)view.findViewById(R.id.confirmar);
 
@@ -62,11 +66,12 @@ public class Fragmento extends Fragment {
         final TextView precio = (TextView)view.findViewById(R.id.libro_precio);
         final TextView genero = (TextView)view.findViewById(R.id.libro_genero);
 
+        //PARA PASAR LOS DATOS AL FRAGMENTO USAMOS GETARGUMENTS
         Bundle miBundle = this.getArguments();
 
         Libros libros = (Libros) miBundle.getSerializable("datos");
 
-
+        //DEFINIR LAS ETIQUETAS PARA GUARDAR LOS DATOS
         titulo.setText("Titulo " +libros.getTitulo());
         subtitulo.setText("Subtitulo " +libros.getSubtitulo());
         autor.setText("Autor " +libros.getAutor());
@@ -76,7 +81,7 @@ public class Fragmento extends Fragment {
 
         tipo.setText("Tipo de libro " +this.getArguments().getString("radiogroup"));
 
-
+        //SI EL BOOLEANO ES TRUE, PASAMOS AL FRAGMENTO EL TEXTO DE SI HA ESCOGIDO EBOOK O NO Y LOS FORMATOS QUE HA SELECCIONADO
         if(this.getArguments().getBoolean("ebook")==true) {
             ebook.setText("Has escogido ebook");
             formato.setText("Formato ebook " +this.getArguments().getString("formato")+" "+this.getArguments().getString("formato1")
@@ -85,6 +90,7 @@ public class Fragmento extends Fragment {
             ebook.setText("No has escogido ebook");
         }
 
+        //SI EL BOOLEANO ES TRUE, PASAMOS AL FRAGMENTO EL DESCUENTO Y EL PRECIO FINAL SI HA ESCOGIDO DE BOLSILLO Y EL EBOOK
         if(this.getArguments().getBoolean("dos")==true){
             descuento.setText("El descuento aplicado es " +this.getArguments().getDouble("descuento"));
             precio_final.setText("El precio después de aplicar el descuento es " +this.getArguments().getDouble("precio final"));
@@ -100,12 +106,30 @@ public class Fragmento extends Fragment {
         confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 act = getActivity();
                 Toast.makeText(act,"Su pedido se ha realizado. Gracias por su confianza",Toast.LENGTH_SHORT).show();
 
                 confirmar.setVisibility(View.INVISIBLE);
 
                 pregunta.setVisibility(View.INVISIBLE);
+
+
+                /*Integer id =
+
+                //HACEMOS UN SELECT DE LA TABLA USUARIOS PARA, COMPROBANDO EL USUARIO Y LA CONTRASEÑA, SABER SI EL USUARIO ESTÁ REGISTRADO
+                Cursor login = bd.rawQuery("SELECT id FROM Usuarios WHERE id= " +id+,  null);
+
+                //CON EL CURSOR, COMPROBAMOS LOS REGISTROS QUE HAY EN LA TABLA DE USUARIOS Y SI COINCIDEN CON LOS QUE INTRODUCIMOS
+                //PASAMOS A LA PANTALLA DE LIBRERÍA, SI NO NOS QUEDAMOS AQUI
+                if (login.moveToFirst()) {
+
+                    String usu_correcto = login.getString(0);
+                    String cont_correcta = login.getString(1);
+
+
+                }
+*/
 
 
             }

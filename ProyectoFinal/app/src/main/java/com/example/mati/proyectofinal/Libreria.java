@@ -62,11 +62,14 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
         final Button volver = (Button) findViewById(R.id.volver);
 
 
+        //INSERTAMOS LOS DATOS EN LA BASE DE DATOS
 
         //bd.execSQL("INSERT INTO Libros (titulo,subtitulo,autor,precio,genero) VALUES ('Cazadores de Sombras 1', 'Ciudad de Ceniza', 'Cassandra Clare', '20', 'Fantasia')");
-       // bd.execSQL("INSERT INTO Libros (titulo,subtitulo,autor,precio,genero) VALUES ('Harry Potter 5', 'La orden del Fénix', 'J. K. Rowling', '22', 'Fantasia')");
+        //bd.execSQL("INSERT INTO Libros (titulo,subtitulo,autor,precio,genero) VALUES ('Harry Potter 5', 'La orden del Fénix', 'J. K. Rowling', '22', 'Fantasia')");
+        //bd.execSQL("INSERT INTO Libros (titulo,subtitulo,autor,precio,genero) VALUES ('La Quinta Ola 1', 'La Quinta Ola', 'Rick Yancey', '17', 'Ciencia Ficción')");
+        //bd.execSQL("INSERT INTO Libros (titulo,subtitulo,autor,precio,genero) VALUES ('The Century 1', 'La Caída de los gigantes', 'Ken Follet', '20.50', 'Historia')");
 
-
+        //SACAR LOS DATOS DE LA BASE DE DATOS
         String[] campos = new String[] {"Titulo", "Subtitulo", "Autor", "Precio", "Genero"};
         Cursor c = bd.query("Libros", campos, null, null, null, null, null);
         datos=new Libros[c.getCount()];
@@ -90,7 +93,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
         }
 
 
-
+        //DEFINIR EL SPINNER
         AdaptadorLibros adaptador = new AdaptadorLibros(this);
         final Spinner libreria = (Spinner) findViewById(R.id.libros);
         libros.setAdapter(adaptador);
@@ -112,6 +115,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
         //Cerramos la base de datos
         bd.close();
 
+        //DEFINIR EL BOTÓN DE FACTURA
         factura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,9 +129,12 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
                 String formato4="";
                 double descuento=0;
                 double precio_final=0;
+                //CONVERTIR EL PRECIO STRING EN DOUBLE
                 double precio = Double.parseDouble(datos[libreria.getSelectedItemPosition()].getPrecio());
 
-
+                //DEFINIR LOS RADIOBUTTONS
+                //SI ES DE BOLSILLO, TIENE UN DESCUENTO DEL 25%
+                //PASAMOS EL NOMBRE, EL DESCUENTO Y EL PRECIO QUE SE QUEDA DESPUÉS DE APLICARLO
                 if (radioGroup.getCheckedRadioButtonId() == R.id.bolsillo){
 
                     descuento = precio*0.25;//si es de bolsillo, un 25% más barato
@@ -136,6 +143,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
 
                 }
 
+                //SI ES DE TAPA DURA, SOLO PASO EL NOMBRE
                 if (radioGroup.getCheckedRadioButtonId() == R.id.normal){
 
                     miBundle.putString("radiogroup", normal.getText().toString());
@@ -143,11 +151,12 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
 
                 }
 
-
+                //DEFINIR LOS CHECKBOX
+                //SI ES EBOOK, DEFINO UNA VARIABLE BOOLEANA PARA SABER SI EL USUARIO HA ESCOGIDO EBOOK O NO Y
+                //TIENE UN 35% DE DESCUENTO
                 boolean eb = false;
-
                 if(ebook.isChecked()){
-
+                    //PASO EL BOOLEANO, EL DESCUENTO Y EL PRECIO QUE SE QUEDA DESPUÉS DE APLICARLO
                     eb=true;
                     descuento = precio*0.35;//si es ebook, un 35% más barato
                     precio_final = precio-descuento;
@@ -155,9 +164,11 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
 
                 }
 
+                //COMO EL DE BOLSILLO Y EL EBOOK TIENEN DOS DESCUENTOS DISTINTOS, CREO OTRA VARIABLE BOOLEANA
+                //Y APLICO EL DESCUENTO TOTAL
                 boolean dos = false;
                 if(ebook.isChecked() && bolsillo.isChecked()){
-
+                    //PASO EL BOOLEANO, EL DESCUENTO Y EL PRECIO QUE SE QUEDA DESPUÉS DE APLICARLO
                     dos = true;
                     descuento = precio*0.60;
                     precio_final = precio - descuento;
@@ -165,7 +176,9 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
 
                 }
 
-
+                //DEFINIR EL FORMATO SI SE ESCOGE EBOOK
+                //CREO 5 VARIABLES PARA QUE CUANDO EL USUARIO ESCOJA MÁS DE UNO, SALGAN TODOS EN EL FRAGMENTO
+                //PASO EL NOMBRE DEL FORMATO
                 if(txt.isChecked()){
 
                     formato = txt.getText().toString();
@@ -196,11 +209,13 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
 
                 }
 
+                //PASAR LOS DATOS SELECCIONADOS EN EL SPINNER AL FRAGMENTO DINÁMICO
                 Libros libro = new Libros(datos[libreria.getSelectedItemPosition()].getTitulo(), datos[libreria.getSelectedItemPosition()].getSubtitulo(),
                         datos[libreria.getSelectedItemPosition()].getAutor(), datos[libreria.getSelectedItemPosition()].getPrecio(), datos[libreria.getSelectedItemPosition()].getGenero());
 
                 miBundle.putSerializable("datos", libro);
 
+                //PASAR LOS DATOS DE LOS RADIOBUTTONS Y LOS CHECKBOX AL FRAGMENTO DINÁMICO
                 miBundle.putSerializable("formato", formato);
                 miBundle.putSerializable("formato1", formato1);
                 miBundle.putSerializable("formato2", formato2);
@@ -209,7 +224,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
                 miBundle.putSerializable ("descuento", descuento);
                 miBundle.putSerializable("precio final", precio_final);
 
-
+                //DEFINIR EL FRAGMENTO DINÁMICO
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
 
                 Fragmento fragment = new Fragmento();
@@ -218,7 +233,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
 
                 transaction.commit();
 
-
+                //HACER TODOS LOS COMPONENTES INVISIBLES PARA QUE SALGA EL FRAGMENTO DINÁMICO
                 titulo.setVisibility(View.INVISIBLE);
                 libros.setVisibility(View.INVISIBLE);
                 subtitulo.setVisibility(View.INVISIBLE);
@@ -234,7 +249,8 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
                 normal.setVisibility(View.INVISIBLE);
                 factura.setVisibility(View.INVISIBLE);
 
-
+                //EL BOTÓN DE CANCELAR PEDIDO ESTÁ FUERA DEL FRAGMENT Y OCULTO EN LA PANTALLA DE LA LIBRERÍA
+                //CUANDO PASO LOS DATOS AL FRAGMENTO, LO HAGO VISIBLE PARA PODER VOLVER A LA PANTALLA DE LA LIBRERÍA
                 volver.setVisibility(View.VISIBLE);
 
 
@@ -245,7 +261,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
             }
         });
 
-
+        //DEFINIR EL BOTÓN CANCELAR PEDIDO
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -260,6 +276,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
 
     }
 
+    //DEFINIR EL ADAPTADOR PARA EL SPINNER Y METER LOS DATOS DE LA BASE DE DATOS EN ÉL
     public class AdaptadorLibros extends ArrayAdapter {
 
         Activity context;
@@ -305,7 +322,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
     }
 
 
-
+    //CREAR EL MENÚ ITEM
     public boolean onCreateOptionsMenu (Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_principal, menu);
@@ -318,6 +335,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
                 startActivity(acerca);
                 return true;
             case R.id.vendidos:
+                //METER EL DIALOG FRAGMENT EN EL MENÚ ITEM
                 DialogFragment vendidos = Vendidos.newInstance("Vendidos");
                 vendidos.show(getFragmentManager(),"vendidos");
                 return true;
@@ -326,7 +344,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
         }
     }
 
-
+    //PARA EL FRAGMENTO DINÁMICO
     @Override
     public void onFragmentInteraction(Uri uri) {
 

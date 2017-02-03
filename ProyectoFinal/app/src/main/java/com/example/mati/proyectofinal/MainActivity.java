@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText usu = (EditText) findViewById(R.id.usuario);
         final EditText cont = (EditText) findViewById(R.id.contraseña);
 
+        //DEFINIR EL BOTÓN DE REGISTRO
         registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,16 +41,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //DEFINIR EL BOTÓN DE LOG IN
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
+                //COGEMOS EL USUARIO Y LA CONTRASEÑA QUE INTRODUCIMOS
                 String usuario = usu.getText().toString();
                 String contraseña = cont.getText().toString();
 
+                //HACEMOS UN SELECT DE LA TABLA USUARIOS PARA, COMPROBANDO EL USUARIO Y LA CONTRASEÑA, SABER SI EL USUARIO ESTÁ REGISTRADO
                 Cursor login = bd.rawQuery("SELECT usuario,contraseña FROM Usuarios WHERE usuario= '" + usuario + "' and contraseña= '" + contraseña + "'", null);
 
+                //CON EL CURSOR, COMPROBAMOS LOS REGISTROS QUE HAY EN LA TABLA DE USUARIOS Y SI COINCIDEN CON LOS QUE INTRODUCIMOS
+                //PASAMOS A LA PANTALLA DE LIBRERÍA, SI NO NOS QUEDAMOS AQUI
                 if (login.moveToFirst()) {
 
                     String usu_correcto = login.getString(0);
