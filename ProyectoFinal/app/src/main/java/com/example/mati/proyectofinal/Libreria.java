@@ -223,6 +223,9 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
                 miBundle.putSerializable("formato4", formato4);
                 miBundle.putSerializable ("descuento", descuento);
                 miBundle.putSerializable("precio final", precio_final);
+                String usuario = miBundle.getString("usuario");
+                miBundle.putSerializable("usuario", usuario);
+
 
                 //DEFINIR EL FRAGMENTO DINÁMICO
                 FragmentTransaction transaction = fragmentManager.beginTransaction();

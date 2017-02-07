@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -65,9 +66,10 @@ public class Fragmento extends Fragment {
         final TextView autor = (TextView)view.findViewById(R.id.libro_autor);
         final TextView precio = (TextView)view.findViewById(R.id.libro_precio);
         final TextView genero = (TextView)view.findViewById(R.id.libro_genero);
+        final EditText usuario = (EditText)view.findViewById(R.id.usuario);
 
         //PARA PASAR LOS DATOS AL FRAGMENTO USAMOS GETARGUMENTS
-        Bundle miBundle = this.getArguments();
+        final Bundle miBundle = this.getArguments();
 
         Libros libros = (Libros) miBundle.getSerializable("datos");
 
@@ -115,23 +117,22 @@ public class Fragmento extends Fragment {
                 pregunta.setVisibility(View.INVISIBLE);
 
 
-                /*Integer id =
+                BaseDeDatos cliBDh = new BaseDeDatos(getActivity().getApplicationContext(), "BaseDeDatos", null, 1);
 
-                //HACEMOS UN SELECT DE LA TABLA USUARIOS PARA, COMPROBANDO EL USUARIO Y LA CONTRASEÑA, SABER SI EL USUARIO ESTÁ REGISTRADO
-                Cursor login = bd.rawQuery("SELECT id FROM Usuarios WHERE id= " +id+,  null);
+                SQLiteDatabase bd = cliBDh.getWritableDatabase();
 
-                //CON EL CURSOR, COMPROBAMOS LOS REGISTROS QUE HAY EN LA TABLA DE USUARIOS Y SI COINCIDEN CON LOS QUE INTRODUCIMOS
-                //PASAMOS A LA PANTALLA DE LIBRERÍA, SI NO NOS QUEDAMOS AQUI
-                if (login.moveToFirst()) {
-
-                    String usu_correcto = login.getString(0);
-                    String cont_correcta = login.getString(1);
-
+                Cursor cursor = bd.rawQuery("SELECT id FROM Usuarios where usuario= '" +miBundle.getString("usuario")+ "';", null);
+                Integer[] id = new Integer[cursor.getCount()];
+                if(cursor.moveToFirst()){
+                    do{
+                        String ids = cursor.getString(0);
+                        id[0] = Integer.parseInt(ids);
+                    }while (cursor.moveToNext());
+                    bd.execSQL("INSERT INTO Pedidos (usuarios, titulo, subtitulo, autor, precio, genero, tipo, ebook, formato, descuento, final) VALUES" +
+                            "( '"+id[0]+"', '" +titulo.getText().toString()+ "','" +subtitulo.getText().toString()+ "','" +autor.getText().toString()+ "','" +precio.getText().toString()+ "','" +genero.getText().toString()+
+                            "','" +tipo.getText().toString()+"','"+ebook.getText().toString()+"','"+formato.getText().toString()+"','"+descuento.getText().toString()+"','"+precio_final.getText().toString()+"');");
 
                 }
-*/
-
-
             }
         });
 

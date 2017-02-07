@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 String usuario = usu.getText().toString();
                 String contraseña = cont.getText().toString();
 
+                Bundle miBundle = new Bundle();
+
                 //HACEMOS UN SELECT DE LA TABLA USUARIOS PARA, COMPROBANDO EL USUARIO Y LA CONTRASEÑA, SABER SI EL USUARIO ESTÁ REGISTRADO
                 Cursor login = bd.rawQuery("SELECT usuario,contraseña FROM Usuarios WHERE usuario= '" + usuario + "' and contraseña= '" + contraseña + "'", null);
 
@@ -62,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
                     if (usuario.equals(usu_correcto) && contraseña.equals(cont_correcta)) {
                         Intent intent2 = new Intent(MainActivity.this, Libreria.class);
+                        //PASAR EL USUARIO
+                        miBundle.putString("usuario", usu_correcto);
+                        intent2.putExtras(miBundle);
                         startActivity(intent2);
 
                     }

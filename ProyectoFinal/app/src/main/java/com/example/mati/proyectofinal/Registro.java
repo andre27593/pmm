@@ -38,14 +38,17 @@ public class Registro extends AppCompatActivity {
             public void onClick(View view) {
 
                 SQLiteDatabase bd = cliBDh.getWritableDatabase();
-
-                bd.execSQL("INSERT INTO Usuarios (usuario, contraseña, confirmar, nombre, correo) VALUES " +
-                        "('"+usu.getText().toString()+"', '"+cont.getText().toString()+"', '"+conf.getText().toString()+"', '"+nom.getText().toString()+"'" +
-                        ", '"+email.getText().toString()+"')");
-
+                try{
+                    bd.execSQL("INSERT INTO Usuarios (usuario, contraseña, confirmar, nombre, correo) VALUES " +
+                            "('"+usu.getText().toString()+"', '"+cont.getText().toString()+"', '"+conf.getText().toString()+"', '"+nom.getText().toString()+"'" +
+                            ", '"+email.getText().toString()+"')");
+                    Toast.makeText(getApplicationContext(), "Registro guardado", Toast.LENGTH_SHORT).show();
+                }catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Usuario duplicado", Toast.LENGTH_SHORT).show();
+                }
                
                 //CUANDO SE GUARDA SALE EL MENSAJE DE REGISTRO GUARDADO
-                Toast.makeText(getApplicationContext(), "Registro guardado", Toast.LENGTH_SHORT).show();
+
 
 
             }
