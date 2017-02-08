@@ -14,61 +14,84 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textStyle="bold"
+        android:textSize="15sp"
         android:id="@+id/libro_titulo" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:id="@+id/libro_subtitulo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textStyle="bold"
+        android:textSize="15sp"
         android:id="@+id/libro_autor" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:id="@+id/libro_precio" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textStyle="bold"
+        android:textSize="15sp"
         android:id="@+id/libro_genero" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:id="@+id/libro_tipo" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:id="@+id/libro_ebook" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:id="@+id/libro_descuento" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:id="@+id/libro_final" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:id="@+id/libro_formato" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textStyle="bold"
+        android:textSize="15sp"
         android:id="@+id/pregunta"
         android:text="¿Es correcto su pedido?"/>
     <Button
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:textStyle="bold"
         android:id="@+id/confirmar"
         android:text="Confirmar pedido"/>
 

@@ -7,4 +7,5 @@
     <color name="colorUsuario">#0186df</color>
     <color name="colorFondo">#CEE3F6</color>
     <color name="colorBotones">#E0F8F7</color>
+    <color name="colorFragmento">#ffffff</color>
 </resources>

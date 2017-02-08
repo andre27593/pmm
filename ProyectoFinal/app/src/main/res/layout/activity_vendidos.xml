@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorFondo"
     tools:context="com.example.mati.proyectofinal.Vendidos">
 
     <Button
@@ -17,10 +18,11 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="89dp"
+        android:textStyle="bold"
         android:id="@+id/volver" />
 
     <TextView
-        android:text="1. Cazadores de Sombras. La dama de medianoche"
+        android:text="1. Cazadores de Sombras. Artifices oscuros 1. La dama de medianoche"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/uno"

@@ -68,6 +68,7 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
         //bd.execSQL("INSERT INTO Libros (titulo,subtitulo,autor,precio,genero) VALUES ('Harry Potter 5', 'La orden del Fénix', 'J. K. Rowling', '22', 'Fantasia')");
         //bd.execSQL("INSERT INTO Libros (titulo,subtitulo,autor,precio,genero) VALUES ('La Quinta Ola 1', 'La Quinta Ola', 'Rick Yancey', '17', 'Ciencia Ficción')");
         //bd.execSQL("INSERT INTO Libros (titulo,subtitulo,autor,precio,genero) VALUES ('The Century 1', 'La Caída de los gigantes', 'Ken Follet', '20.50', 'Historia')");
+        //bd.execSQL("INSERT INTO Libros (titulo,subtitulo,autor,precio,genero) VALUES ('Cazadores de Sombras. Artifices Oscuros 1','La dama de medianoche', 'Cassandra Clare', '18', 'Fantasia')");
 
         //SACAR LOS DATOS DE LA BASE DE DATOS
         String[] campos = new String[] {"Titulo", "Subtitulo", "Autor", "Precio", "Genero"};
@@ -223,8 +224,8 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
                 miBundle.putSerializable("formato4", formato4);
                 miBundle.putSerializable ("descuento", descuento);
                 miBundle.putSerializable("precio final", precio_final);
-                String usuario = miBundle.getString("usuario");
-                miBundle.putSerializable("usuario", usuario);
+                String usuario = getIntent().getStringExtra("usuario");
+                miBundle.putSerializable("usu", usuario);
 
 
                 //DEFINIR EL FRAGMENTO DINÁMICO
@@ -341,6 +342,16 @@ public class Libreria extends AppCompatActivity implements Fragmento.OnFragmentI
                 //METER EL DIALOG FRAGMENT EN EL MENÚ ITEM
                 DialogFragment vendidos = Vendidos.newInstance("Vendidos");
                 vendidos.show(getFragmentManager(),"vendidos");
+                return true;
+            case R.id.noticias:
+                //BUSCAR NOTICIAS
+                Intent noticias = new Intent(Libreria.this, Noticias.class);
+                startActivity(noticias);
+                return true;
+            case R.id.salir:
+                //OPCIÓN PARA VOLVER A LA PANTALLA DE LOG IN
+                Intent salir = new Intent(this, MainActivity.class);
+                startActivity(salir);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

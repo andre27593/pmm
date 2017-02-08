@@ -39,10 +39,23 @@ public class Registro extends AppCompatActivity {
 
                 SQLiteDatabase bd = cliBDh.getWritableDatabase();
                 try{
-                    bd.execSQL("INSERT INTO Usuarios (usuario, contraseña, confirmar, nombre, correo) VALUES " +
-                            "('"+usu.getText().toString()+"', '"+cont.getText().toString()+"', '"+conf.getText().toString()+"', '"+nom.getText().toString()+"'" +
-                            ", '"+email.getText().toString()+"')");
-                    Toast.makeText(getApplicationContext(), "Registro guardado", Toast.LENGTH_SHORT).show();
+
+                    //COMPROBAR SI CONFIRMAR CONTRASEÑA ES IGUAL A LA CONTRASEÑA
+                    //SI LO ES INSERTA, SINO NO Y SALE EL MENSAJE DE CONTRASEÑA ERRONEA
+                    String confirmar = conf.getText().toString();
+
+                    if(confirmar.equals(cont.getText().toString())){
+
+                        bd.execSQL("INSERT INTO Usuarios (usuario, contraseña, confirmar, nombre, correo) VALUES " +
+                                "('"+usu.getText().toString()+"', '"+cont.getText().toString()+"', '"+conf.getText().toString()+"', '"+nom.getText().toString()+"'" +
+                                ", '"+email.getText().toString()+"')");
+                        Toast.makeText(getApplicationContext(), "Registro guardado", Toast.LENGTH_SHORT).show();
+
+                    }else {
+
+                        Toast.makeText(getApplicationContext(), "Contraseña erronea", Toast.LENGTH_SHORT).show();
+
+                    }
                 }catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Usuario duplicado", Toast.LENGTH_SHORT).show();
                 }

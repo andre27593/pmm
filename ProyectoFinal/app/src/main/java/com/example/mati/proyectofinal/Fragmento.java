@@ -32,7 +32,7 @@ import android.widget.Toast;
  */
 public class Fragmento extends Fragment {
 
-
+    Integer[] id;
     private OnFragmentInteractionListener mListener;
 
     Activity act;
@@ -110,7 +110,7 @@ public class Fragmento extends Fragment {
             public void onClick(View view) {
 
                 act = getActivity();
-                Toast.makeText(act,"Su pedido se ha realizado. Gracias por su confianza",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(act,"Su pedido se ha realizado. Gracias por su confianza",Toast.LENGTH_SHORT).show();
 
                 confirmar.setVisibility(View.INVISIBLE);
 
@@ -120,17 +120,24 @@ public class Fragmento extends Fragment {
                 BaseDeDatos cliBDh = new BaseDeDatos(getActivity().getApplicationContext(), "BaseDeDatos", null, 1);
 
                 SQLiteDatabase bd = cliBDh.getWritableDatabase();
-
-                Cursor cursor = bd.rawQuery("SELECT id FROM Usuarios where usuario= '" +miBundle.getString("usuario")+ "';", null);
-                Integer[] id = new Integer[cursor.getCount()];
+                //PARA BUSCAR EL ID DE CADA USUARIO
+                Cursor cursor = bd.rawQuery("SELECT id FROM Usuarios where usuario= '" +miBundle.getString("usu")+ "';", null);
+                id = new Integer[cursor.getCount()];
+                //RECORREMOS TODOS LOS ID Y LOS GUARDAMOS EN UN ARRAY
                 if(cursor.moveToFirst()){
                     do{
                         String ids = cursor.getString(0);
                         id[0] = Integer.parseInt(ids);
                     }while (cursor.moveToNext());
-                    bd.execSQL("INSERT INTO Pedidos (usuarios, titulo, subtitulo, autor, precio, genero, tipo, ebook, formato, descuento, final) VALUES" +
-                            "( '"+id[0]+"', '" +titulo.getText().toString()+ "','" +subtitulo.getText().toString()+ "','" +autor.getText().toString()+ "','" +precio.getText().toString()+ "','" +genero.getText().toString()+
-                            "','" +tipo.getText().toString()+"','"+ebook.getText().toString()+"','"+formato.getText().toString()+"','"+descuento.getText().toString()+"','"+precio_final.getText().toString()+"');");
+                    //INSERTAMOS EN LA TABLA PEDIDOS LOS DATOS DEL FRAGMENTO CON EL ID DE CADA USUARIO
+                    try{
+                        bd.execSQL("INSERT INTO Pedidos (usuarios, titulo, subtitulo, autor, precio, genero, tipo, ebook, formato, descuento, final) VALUES" +
+                                "( '"+id[0]+"', '" +titulo.getText().toString()+ "','" +subtitulo.getText().toString()+ "','" +autor.getText().toString()+ "','" +precio.getText().toString()+ "','" +genero.getText().toString()+
+                                "','" +tipo.getText().toString()+"','"+ebook.getText().toString()+"','"+formato.getText().toString()+"','"+descuento.getText().toString()+"','"+precio_final.getText().toString()+"');");
+                        Toast.makeText(getActivity().getApplicationContext(), "Su pedido se ha realizado correctamente. Gracias por su confianza", Toast.LENGTH_LONG ).show();
+                    }catch (Exception e){
+                        Toast.makeText(getActivity().getApplicationContext(), "No se ha insertado correctamente " +id[0], Toast.LENGTH_LONG ).show();
+                    }
 
                 }
             }

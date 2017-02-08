@@ -6,5 +6,9 @@
         android:id="@+id/acerca" />
     <item android:title="Los más vendidos:"
         android:id="@+id/vendidos" />
+    <item android:title="Noticias"
+        android:id="@+id/noticias" />
+    <item android:title="Salir"
+        android:id="@+id/salir" />
 
 </menu>
